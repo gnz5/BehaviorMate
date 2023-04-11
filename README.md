@@ -3,4 +3,4 @@ A remake of the BehaviorMate program originally developed by Jack Bowler at Colu
 
 No installation necessary. Simply clone the repo and execute the run.bat file.
 
-![Alt text](UI screenshot.png)
+![Alt text]("UI screenshot.png")
