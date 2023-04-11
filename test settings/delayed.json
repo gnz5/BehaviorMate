@@ -1,0 +1,102 @@
+// C++ style '//' comments are permitted to comment out the end of lines
+// but block style i.e. '/*' will not work
+{
+    "example": { // name for each profile of in this setting file
+        "controllers": {
+            "behavior_controller": {
+                "ip": "127.0.0.1",
+                "send_port": 4096,
+                "receive_port": 5000
+            },
+            "position_controller": {
+				"ip": "127.0.0.1",
+                "send_port": 5005,
+                "receive_port": 5005
+            },
+            "frame_sync": {
+                "ip": "192.168.1.103",
+                "send_port": 5010,
+                "receive_port": 5010
+            }
+        },
+        "reward": {
+            "id": "reward"
+        },
+        // "sensors" is a list of all the sensors that need to be configured on
+        // the behavior arduino. See sensor manager class in behavior
+        // controller. Default sensor type is to read a ttl pulse/square wave
+        // input. a lickport type context  is necessary for rewarding contexts.
+        "sensors": [
+            {
+                "type": "cap1188",
+                "pin": 3,
+                "sensor": 0,
+                "lights": true,
+                "sensitivity": 6,
+                "reset_pin": 5
+            }
+        ],
+        // "contexts" are time/space localized events that can be configured to
+        // occur along the track. See Context Manager in the behavior arduino
+        // code for more information
+        "contexts": [
+            // reward zones are an example of a context and can be configured
+            // in this list as well.
+			{
+				"id": "reward",    // every context is required to have a
+								   // unique id
+				"type": "operant", // specialized contexts are defined
+								   // through the type field. operant type
+								   // contexts are triggered via sensors i.e.
+								   // the lickport
+				"max_duration": 5, // maximum time (in s) the context is allowed
+								   // to be active
+				"valves": [52],    // list of arduino pins to activate when the
+								   // context starts
+				"durations": [60], // list of times to open valves for
+				"operant_rate": 2,
+				"radius": 50,
+				"report_pin": 7,
+				"initial_open": false,
+				"sensor": 2, // pin number associated with the sensor to trigger
+							 // operant context.
+				"locations": 6,
+				// "locations": [500, 1500], // integer or list. list - list of
+											 // locations to place context
+											 // centroids. integer - number of
+											 // locations to randomly shuffle
+											 // context to. absent - context is
+											 // active during entire trial
+				"display_color": [200,255,0], // color to make display
+												// indicating the location of
+												// this context
+				"decorators": [
+					{			
+						"class": "delayed",
+						"delay": 4
+					}
+				],
+			}
+		],
+        "sync_pin": 23, // a ttl pulse is delivered at the beginning of each
+                        // trial to the sync pin.
+        "trial_length": 300, // duration (in s) of the trial.
+        "position_lap_reset": true,
+        "position_scale": -2.18, // scales the position updates from aritrary
+                                 // unitst to mm. IMPORTANT! measure this value
+                                 // on each rig or position updates will be
+                                 // wrong
+        "track_length": 2000, // length of the track/treadmill belt.
+        "position_lap_reader": true,
+        "lap_offset": 300,
+        "comment_keys": {
+            "g": "grooming"
+        }
+    },
+    // the _system holde the data directory field. this does not get saved each
+    // trial and needs to be set to a directory where the program can write
+    // and store files. if windows, ensure to escape backslashes i.e. \\
+    "_system": {
+        "data_directory":"behaviorData"
+    }
+}

@@ -1,0 +1,448 @@
+// C++ style '//' comments are permitted to comment out the end of lines
+// but block style i.e. '/*' will not work
+{
+    "_rig_settings": {
+        "controllers": {
+            "behavior_controller": {
+                "ip": "127.0.0.1",
+                "send_port": 4096,
+                "receive_port": 5000
+            },
+            "position_controller": {
+				"ip": "127.0.0.1",
+                "send_port": 5005,
+                "receive_port": 5005
+            },
+            "frame_sync": {
+                "ip": "192.168.1.103",
+                "send_port": 5010,
+                "receive_port": 5010
+            },
+            "reset_controller": {
+                "ip": "192.168.1.104",
+                "send_port": 5015,
+                "receive_port": 5015
+            },
+            "display_1": {
+                "ip": "192.168.1.171",
+                "send_port": 4020,
+                "receive_port": 4021
+            },
+            "display_2": {
+                "ip": "192.168.1.172",
+                "send_port": 4020,
+                "receive_port": 4022
+            },
+            "display_3": {
+                "ip": "192.168.1.173",
+                "send_port": 4020,
+                "receive_port": 4023
+            },
+            "display_4": {
+                "ip": "192.168.1.174",
+                "send_port": 4020,
+                "receive_port": 4024
+            },
+            "display_5": {
+                "ip": "192.168.1.175",
+                "send_port": 4020,
+                "receive_port": 4025
+            },
+            "display_6": {
+                "ip": "127.0.0.1",
+                "send_port": 4020,
+                "receive_port": 4026
+            }
+        },
+        "sync_pin": 23,
+        "position_scale": 1.7,
+        "track_length": 3000,
+        "lap_offset": 0,
+        "position_lap_reader": false
+    },
+    "context_switch": {
+        "uses": "_rig_settings",
+        "experimentType": "context_switch",
+        "novel": false,
+        "trial_length": 4800,
+        "lap_limit": 149,
+        "zero_position_boundary": true,
+        "reward": {
+            "id": "reward"
+        },
+        "sensors": [
+            {
+                "type": "cap1188",
+                "pin": 3,
+                "sensor": 1,
+                "lights": true,
+                "sensitivity": 6,
+                "reset_pin": 5
+            }
+        ],
+        "contexts": [
+            {
+                "id": "ctx_1",
+                "class": "vr2",
+                "start_position": 0,
+                "display_controllers": [
+                    "display_1",
+                    "display_2",
+                    "display_3",
+                    "display_4",
+                    "display_5"
+                ],
+                "views": [
+                    {
+                        "top": 0.12,
+                        "bottom": -0.05,
+                        "left": -0.08,
+                        "right": 0.02,
+                        "near": 0.1,
+                        "rotation": -90
+                    },
+                    {
+                        "top": 0.14,
+                        "bottom": -0.058,
+                        "left": -0.07,
+                        "right": 0.03,
+                        "near": 0.1,
+                        "rotation": -45
+                    },
+                    {
+                        "top": 0.15,
+                        "bottom": -0.065,
+                        "left": -0.05,
+                        "right": 0.05,
+                        "near": 0.1,
+                        "rotation": 0
+                    },
+                    {
+                        "top": 0.14,
+                        "bottom": -0.058,
+                        "left": -0.03,
+                        "right": 0.07,
+                        "near": 0.1,
+                        "rotation": 45
+                    },
+                    {
+                        "top": 0.12,
+                        "bottom": -0.05,
+                        "left": -0.02,
+                        "right": 0.08,
+                        "near": 0.1,
+                        "rotation": 90
+                    }
+               ],
+               "scene_name": "ctx_1",
+               "decorators": [
+                 {
+                     "class": "scheduled_context",
+                     "lap_list": [[0, 40],
+                                  [70, 100],
+                                  [130, 150]]
+                 },
+                 {
+                      "class": "timed_iti",
+                      "random_iti": false,
+                      "iti_time": 2
+                 }
+                ]
+            },
+            {
+                "id": "ctx_2",
+                "class": "vr2",
+                "start_position": 0,
+                "display_controllers": [
+                    "display_1",
+                    "display_2",
+                    "display_3",
+                    "display_4",
+                    "display_5"
+                ],
+                "views": [
+                    {
+                        "top": 0.12,
+                        "bottom": -0.05,
+                        "left": -0.08,
+                        "right": 0.02,
+                        "near": 0.1,
+                        "rotation": -90
+                    },
+                    {
+                        "top": 0.14,
+                        "bottom": -0.058,
+                        "left": -0.07,
+                        "right": 0.03,
+                        "near": 0.1,
+                        "rotation": -45
+                    },
+                    {
+                        "top": 0.15,
+                        "bottom": -0.065,
+                        "left": -0.05,
+                        "right": 0.05,
+                        "near": 0.1,
+                        "rotation": 0
+                    },
+                    {
+                        "top": 0.14,
+                        "bottom": -0.058,
+                        "left": -0.03,
+                        "right": 0.07,
+                        "near": 0.1,
+                        "rotation": 45
+                    },
+                    {
+                        "top": 0.12,
+                        "bottom": -0.05,
+                        "left": -0.02,
+                        "right": 0.08,
+                        "near": 0.1,
+                        "rotation": 90
+                    }
+                ],
+                "scene_name": "ctx_2",
+                "decorators": [
+                    {
+                        "class": "scheduled_context",
+                        "lap_list": [[40, 70],
+                                     [100, 130]]
+                    },
+                    {
+                        "class": "timed_iti",
+                        "random_iti": false,
+                        "iti_time": 2
+                    }
+                ]
+            },
+            {
+                "id": "reward",
+                "type": "operant",
+                "max_duration": 0.1,
+                "valves": [50],
+                "durations": [55],
+                "operant_rate": 10,
+                "radius": 50,
+                "initial_open": true,
+                "sensor": 3,
+                "locations": [1200, 2700], 
+                "display_color": [104,204,104],
+                "decorators": [
+                    {
+                         "class": "timed_iti",
+                         "random_iti": false,
+                         "iti_time": 2
+                    }
+                   ]
+            }
+        ]
+    },
+
+    "history_dependence_2_ctx": {
+        "uses": "_rig_settings",
+        "experimentType": "history_dependence_2_ctx",
+        "trial_length": 4800,
+        "lap_limit": 149,
+        "zero_position_boundary": true,
+        "reward": {
+            "id": "reward"
+        },
+        "sensors": [
+            {
+                "type": "cap1188",
+                "pin": 3,
+                "sensor": 1,
+                "lights": true,
+                "sensitivity": 6,
+                "reset_pin": 5
+            }
+        ],
+        "contexts": [
+            {
+                "id": "ctx_1",
+                "class": "vr2",
+                "start_position": 0,
+                "display_controllers": [
+                    "display_1",
+                    "display_2",
+                    "display_3",
+                    "display_4",
+                    "display_5"
+                ],
+                "views": [
+                    {
+                        "top": 0.12,
+                        "bottom": -0.05,
+                        "left": -0.08,
+                        "right": 0.02,
+                        "near": 0.1,
+                        "rotation": -90
+                    },
+                    {
+                        "top": 0.14,
+                        "bottom": -0.058,
+                        "left": -0.07,
+                        "right": 0.03,
+                        "near": 0.1,
+                        "rotation": -45
+                    },
+                    {
+                        "top": 0.15,
+                        "bottom": -0.065,
+                        "left": -0.05,
+                        "right": 0.05,
+                        "near": 0.1,
+                        "rotation": 0
+                    },
+                    {
+                        "top": 0.14,
+                        "bottom": -0.058,
+                        "left": -0.03,
+                        "right": 0.07,
+                        "near": 0.1,
+                        "rotation": 45
+                    },
+                    {
+                        "top": 0.12,
+                        "bottom": -0.05,
+                        "left": -0.02,
+                        "right": 0.08,
+                        "near": 0.1,
+                        "rotation": 90
+                    }
+               ],
+               "scene_name": "ctx_1",
+               "decorators": [
+                 {
+                     "class": "scheduled_context",
+                     "lap_list": [[0, 5],
+                                  [5, 10],
+                                  [20, 25],
+                                  [35, 40],
+                                  [40, 45],
+                                  [50, 55],
+                                  [60, 65],
+                                  [65, 70],
+                                  [80, 85],
+                                  [85, 90],
+                                  [105, 110],
+                                  [110, 115],
+                                  [130, 135],
+                                  [135, 140],
+                                  [140, 145]]
+                 },
+                 {
+                      "class": "timed_iti",
+                      "random_iti": false,
+                      "iti_time": 2
+                 }
+                ]
+            },
+            {
+                "id": "ctx_3",
+                "class": "vr2",
+                "start_position": 0,
+                "display_controllers": [
+                    "display_1",
+                    "display_2",
+                    "display_3",
+                    "display_4",
+                    "display_5"
+                ],
+                "views": [
+                    {
+                        "top": 0.12,
+                        "bottom": -0.05,
+                        "left": -0.08,
+                        "right": 0.02,
+                        "near": 0.1,
+                        "rotation": -90
+                    },
+                    {
+                        "top": 0.14,
+                        "bottom": -0.058,
+                        "left": -0.07,
+                        "right": 0.03,
+                        "near": 0.1,
+                        "rotation": -45
+                    },
+                    {
+                        "top": 0.15,
+                        "bottom": -0.065,
+                        "left": -0.05,
+                        "right": 0.05,
+                        "near": 0.1,
+                        "rotation": 0
+                    },
+                    {
+                        "top": 0.14,
+                        "bottom": -0.058,
+                        "left": -0.03,
+                        "right": 0.07,
+                        "near": 0.1,
+                        "rotation": 45
+                    },
+                    {
+                        "top": 0.12,
+                        "bottom": -0.05,
+                        "left": -0.02,
+                        "right": 0.08,
+                        "near": 0.1,
+                        "rotation": 90
+                    }
+                ],
+                "scene_name": "ctx_3",
+                "decorators": [
+                    {
+                        "class": "scheduled_context",
+                        "lap_list": [[10, 15],
+                                     [15, 20],
+                                     [25, 30],
+                                     [30, 35],
+                                     [45, 50],
+                                     [55, 60],
+                                     [70, 75],
+                                     [75, 80],
+                                     [90, 95],
+                                     [95, 100],
+                                     [100, 105],
+                                     [115, 120],
+                                     [120, 125],
+                                     [125, 130],
+                                     [145, 150]]
+                    },
+                    {
+                        "class": "timed_iti",
+                        "random_iti": false,
+                        "iti_time": 2
+                    }
+                ]
+            },
+            {
+                "id": "reward",
+                "type": "operant",
+                "max_duration": 0.1,
+                "valves": [50],
+                "durations": [50],
+                "operant_rate": 10,
+                "radius": 50,
+                "initial_open": true,
+                "sensor": 3,
+                "locations": [1200, 2700],  // [1200, 1250, 1300, 1350, 2700, 2750, 2800, 2850],
+                "display_color": [104,204,104],
+                "decorators": [
+                    {
+                         "class": "timed_iti",
+                         "random_iti": false,
+                         "iti_time": 2
+                    }
+                   ]
+            }
+        ]
+    },
+
+    "_system": {
+        "data_directory":"behaviorData"
+    }
+}

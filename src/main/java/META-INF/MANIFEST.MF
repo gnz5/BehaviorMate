@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Class-Path: core-3.3.7.jar org.json-20120521.jar
+Main-Class: losonczylab.behaviormate.Main
+
