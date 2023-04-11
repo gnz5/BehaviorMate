@@ -1,0 +1,37 @@
+Making and deploying a JavaFX Hello World in IntelliJ
+
+1) Download latest version of IntelliJ (2021.2.3 latest version that worked)
+
+	https://www.jetbrains.com/idea/download
+
+2) Download OpenJFX SDK binaries for Windows x64
+
+	a) https://download2.gluonhq.com/openjfx/17.0.1/openjfx-17.0.1_windows-x64_bin-sdk.zip
+	b) extract to a location of your choice
+	c) this location will be refered to as your_openjfx_path
+
+2) Make a new JavaFX project
+
+	a) File > New > Project > JavaFX
+	b) Set Project SDK to "BellSoft Liberica JDK version 11.0.13" (Must use this version)
+
+3) Create a new class called Main with the following code:
+
+	public class Main {
+    		public static void main(String[] args) {
+        		BehaviorMate.main(args);
+    		}
+	}
+
+4) Set project to build executable JAR
+	  
+	a) File > Project Structure
+	b) + (Add) > JAR > from modules with dependencies
+	c) choose Main as the Main Class and click OK
+	d) + (Add Copy of) > File > Select all .dll files in your_openjfx_path/bin
+	e) check "Include in project build"
+
+5) Run the project (this will also build the project and all artifacts)
+
+6) Executable jar will be located in the ./out/artificats/project_name folder in the project's
+   root directory

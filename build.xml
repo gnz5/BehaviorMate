@@ -1,0 +1,30 @@
+<project name="BehaviorMate" basedir="." default="main">
+
+	<property name="lists.output.dir"   value="lists"/>
+	<property name="decorators.output.dir"   value="decorators"/>
+	<property name="lists.input.dir"   value="target/classes/losonczylab/behaviormate/lists"/>
+	<property name="decorators.input.dir"   value="target/classes/losonczylab/behaviormate/decorators"/>
+
+	<target name="clean">
+		<delete dir="${lists.output.dir}"/>
+		<delete dir="${decorators.output.dir}"/>
+		<mkdir dir="${lists.output.dir}"/>
+		<mkdir dir="${decorators.output.dir}"/>
+	</target>
+
+	<target name="copy">
+		<copy todir="${lists.output.dir}">
+			<fileset dir="${lists.input.dir}">
+				<include name="*"/>
+			</fileset>
+		</copy>
+		<copy todir="${decorators.output.dir}">
+			<fileset dir="${decorators.input.dir}">
+				<include name="*"/>
+			</fileset>
+		</copy>
+	</target>
+
+	<target name="main" depends="clean,copy"/>
+
+</project>

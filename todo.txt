@@ -1,0 +1,23 @@
+Replace instances of creation of new JSONObjects with calls to a static method
+
+wrapping decorators
+
+add option in settings file to display all reward counts (Zhen has multiple reward pins, default isa 52)
+
+move slow UI and treadmill loop to separate threads
+
+DONE:6
+
+Make so position only needs to be zerod if lap_reset_true field is passed in settings file
+
+Reward status label
+
+remake save or delete dialog
+
+display currently loaded settings file and decorator(s)
+
+Get trial attributes and comments box working
+
+Get keyboard shortcuts working
+
+
